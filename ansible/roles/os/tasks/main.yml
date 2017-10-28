@@ -56,4 +56,4 @@
     masked: no
 
 - name: Create user docker for running containers
-  user: name=docker groups=docker
+  user: name=docker groups=docker,i2c,gpio

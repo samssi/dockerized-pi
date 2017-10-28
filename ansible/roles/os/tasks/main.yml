@@ -44,9 +44,6 @@
 - name: Add kernel modules to /etc/modules
   template: src=modules.j2 dest=/etc/modules owner=root group=root mode=0644
 
-- name: Create user sensor for running the software and add it to the required groups so it can read gpio and i2c
-  user: name=sensor groups=i2c,gpio
-
 - name: Install docker
   shell: curl -sSL https://get.docker.com | sh
   args:

@@ -1,0 +1,16 @@
+- name: Install docker
+  shell: curl -sSL https://get.docker.com | sh
+  args:
+    creates: /usr/bin/docker
+
+- name: Disable docker iptables modifications as Rasbian doesn't have it running
+  template: src=daemon.json.j2 dest=/etc/docker/daemon.json owner=root group=root mode=0700
+
+- name: Enable docker service
+  systemd:
+    name: docker
+    enabled: yes
+    masked: no
+
+- name: Create user docker for running containers
+  user: name=docker groups=docker,i2c,gpio,kmem

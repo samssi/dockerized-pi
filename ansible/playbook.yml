@@ -1,3 +1,5 @@
 - hosts: pi
   roles:
     - os
+    - modules
+    - docker

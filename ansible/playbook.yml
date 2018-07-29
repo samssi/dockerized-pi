@@ -2,4 +2,4 @@
   roles:
     - os
     - modules
-    - docker
+    #- docker
